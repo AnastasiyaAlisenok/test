@@ -1,4 +1,4 @@
-import addLayout from "./modules/view/view";
-import "./style.scss";
+import addLayout from './modules/view/view';
+import './style.scss';
 
-window.addEventListener("load", addLayout);
+window.addEventListener('load', addLayout);

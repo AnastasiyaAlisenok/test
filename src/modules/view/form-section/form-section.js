@@ -1,3 +1,4 @@
+import IMask from 'imask';
 import createElement from '../../../utils/createElement';
 import './form-section.scss';
 
@@ -17,18 +18,32 @@ function createForm() {
   form.id = 'form';
   const nameLabel = createField('Имя', 'text');
   const emailLabel = createField('Email', 'email');
-  const phoneLabel = createField('Телефон', 'text');
+  const phoneContainer = createElement('div', 'form-field');
+  const phoneLabel = createElement('label', 'form-field__label', 'Телефон');
+  const phoneInput = createElement('input', 'form-field__input phone', '');
+  const phoneMask = new IMask(phoneInput, {
+    mask: '+{375}(00)000-00-00',
+  });
+  phoneContainer.append(phoneLabel, phoneInput);
   const textLabel = createElement('label', 'form-field__label', 'Сообщение');
   const star = createElement('span', 'form-field__star', '*');
   textLabel.append(star);
   const textField = createElement('textarea', 'form__text', '');
-  textField.rows = '10';
+  textField.rows = '8';
   const formButton = createElement('button', 'form__button', 'Отправить');
   formButton.type = 'submit';
+  function phoneInputHandler() {
+    if (phoneMask.masked.isComplete) {
+      formButton.classList.add('btn__active');
+    } else {
+      formButton.classList.remove('btn__active');
+    }
+  }
+  phoneInput.addEventListener('input', phoneInputHandler);
   form.append(
     nameLabel,
     emailLabel,
-    phoneLabel,
+    phoneContainer,
     textLabel,
     textField,
     formButton,

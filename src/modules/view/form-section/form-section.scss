@@ -61,8 +61,15 @@ textarea {
             display: block;
             margin: 0 auto;
             padding: 10px 5px;
-            background-color: #de8b06;
+            background-color: #bca073;
             color: $light-color;
+            pointer-events: none;
+
+            &.btn__active {
+                pointer-events: auto;
+                background-color: #ff8438;
+                cursor: pointer;
+            }
 
             &:hover {
                 background-color: #de8b069b;
