@@ -1,0 +1,79 @@
+@import '../../../styles/styles_variables.scss';
+
+label,
+textarea {
+    display: block;
+}
+
+.form-section {
+    width: 100%;
+    margin-bottom: 50px;
+
+    &__title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    &__form {
+        width: 35%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: $light-color;
+        box-shadow: 0px 3px 24px 0px rgba(34, 60, 80, 0.2);
+    }
+
+    .form {
+        &-field {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            &__label {
+                width: 30%;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+
+            &__star {
+                color: red;
+                margin-left: 5px;
+            }
+
+            &__input {
+                width: 60%;
+                padding: 5px;
+                font-size: 18px;
+                border: 2px solid #aaaaaa;
+            }
+        }
+
+        &__text {
+            width: 90%;
+            border: 2px solid #aaaaaa;
+            margin: 10px 0 30px 0;
+        }
+
+        &__button {
+            cursor: pointer;
+            width: 150px;
+            display: block;
+            margin: 0 auto;
+            padding: 10px 5px;
+            background-color: #de8b06;
+            color: $light-color;
+
+            &:hover {
+                background-color: #de8b069b;
+            }
+        }
+    }
+}
+
+input:focus,
+textarea:focus {
+    outline: 0;
+    border: 2px solid #de8b06;
+    box-shadow: 0 0 0 0.2rem rgba(222, 139, 6, 0.25);
+}

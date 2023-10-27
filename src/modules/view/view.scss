@@ -1,0 +1,11 @@
+@import "../../styles/styles_variables.scss";
+
+header,
+footer {
+    height: 100px;
+    background-color: $bg-color;
+}
+
+header {
+    margin-bottom: 50px;
+}
