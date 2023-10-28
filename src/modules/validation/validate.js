@@ -28,6 +28,7 @@ function createError(element, text, classInfo) {
 function checkPhone(element) {
   const phoneMask = new IMask(element, {
     mask: '+{375}(00)000-00-00',
+    lazy: false,
   });
   if (!phoneMask.masked.isComplete) {
     return true;

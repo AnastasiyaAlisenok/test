@@ -22,7 +22,8 @@
         ],
         "import/export": 2,
         "import/extensions": 0,
-        "no-console": "off"
+        "no-console": "off",
+        "no-param-reassign": "off"
     },
     "ignorePatterns": [
         "webpack.config.js",

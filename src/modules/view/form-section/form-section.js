@@ -1,6 +1,7 @@
 import createElement from '../../../utils/createElement';
 import './form-section.scss';
 import checkValidate, { removeErrors } from '../../validation/validate';
+import { sendRequest } from '../../api/api';
 
 function createField(text, tag, type) {
   const container = createElement('div', 'form-field', '');
@@ -32,6 +33,7 @@ function createForm() {
     const formFields = form.querySelectorAll('.form-field__input');
     removeErrors();
     formFields.forEach((field) => checkValidate(field));
+    sendRequest();
   });
   form.append(nameLabel, emailLabel, phoneLabel, msgLabel, formButton);
   return form;
