@@ -1,5 +1,6 @@
 import createButton from './button/button';
 import createFormSection from './form-section/form-section';
+import { createModal, createOverlay } from './modal/modal';
 import './view.scss';
 
 const body = document.querySelector('body');
@@ -11,7 +12,9 @@ function addLayout() {
   const footer = document.createElement('footer');
   const main = document.createElement('main');
   const formSection = createFormSection();
-  main.append(formSection);
+  const modal = createModal();
+  const overlay = createOverlay();
+  main.append(formSection, modal, overlay);
   body.append(header, main, footer);
 }
 
