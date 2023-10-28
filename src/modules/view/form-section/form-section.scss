@@ -28,7 +28,12 @@ textarea {
             width: 90%;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+
+            &:first-child {
+                margin-top: 0;
+            }
 
             &__label {
                 width: 30%;
@@ -46,13 +51,11 @@ textarea {
                 padding: 5px;
                 font-size: 18px;
                 border: 2px solid #aaaaaa;
-            }
-        }
 
-        &__text {
-            width: 90%;
-            border: 2px solid #aaaaaa;
-            margin: 10px 0 30px 0;
+                &.input-error {
+                    border-color: red;
+                }
+            }
         }
 
         &__button {
@@ -60,16 +63,10 @@ textarea {
             width: 150px;
             display: block;
             margin: 0 auto;
+            margin-top: 25px;
             padding: 10px 5px;
-            background-color: #bca073;
+            background-color: #ff8438;
             color: $light-color;
-            pointer-events: none;
-
-            &.btn__active {
-                pointer-events: auto;
-                background-color: #ff8438;
-                cursor: pointer;
-            }
 
             &:hover {
                 background-color: #de8b069b;
@@ -83,4 +80,17 @@ textarea:focus {
     outline: 0;
     border: 2px solid #de8b06;
     box-shadow: 0 0 0 0.2rem rgba(222, 139, 6, 0.25);
+}
+
+.error {
+    width: 100%;
+    color: red;
+    font-size: 12px;
+    margin-left: 36%;
+    margin-bottom: 5px;
+
+    .form__text~& {
+        text-align: left;
+        margin-left: 0;
+    }
 }

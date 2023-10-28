@@ -1,13 +1,19 @@
-import IMask from 'imask';
 import createElement from '../../../utils/createElement';
 import './form-section.scss';
+import checkValidate, { removeErrors } from '../../validation/validate';
 
-function createField(text, type) {
+function createField(text, tag, type) {
   const container = createElement('div', 'form-field', '');
   const star = createElement('span', 'form-field__star', '*');
   const label = createElement('label', 'form-field__label', text);
-  const input = createElement('input', 'form-field__input', '');
-  input.type = type;
+  const input = createElement(tag, 'form-field__input', '');
+  input.addEventListener('input', () => {
+    removeErrors();
+    const formFields = document.querySelectorAll('.form-field__input');
+    formFields.forEach((field) => checkValidate(field));
+  });
+  if (type) input.type = type;
+  if (tag === 'textarea') input.rows = '8';
   label.append(star);
   container.append(label, input);
   return container;
@@ -16,38 +22,18 @@ function createField(text, type) {
 function createForm() {
   const form = document.createElement('form');
   form.id = 'form';
-  const nameLabel = createField('Имя', 'text');
-  const emailLabel = createField('Email', 'email');
-  const phoneContainer = createElement('div', 'form-field');
-  const phoneLabel = createElement('label', 'form-field__label', 'Телефон');
-  const phoneInput = createElement('input', 'form-field__input phone', '');
-  const phoneMask = new IMask(phoneInput, {
-    mask: '+{375}(00)000-00-00',
-  });
-  phoneContainer.append(phoneLabel, phoneInput);
-  const textLabel = createElement('label', 'form-field__label', 'Сообщение');
-  const star = createElement('span', 'form-field__star', '*');
-  textLabel.append(star);
-  const textField = createElement('textarea', 'form__text', '');
-  textField.rows = '8';
+  const nameLabel = createField('Имя', 'input', 'text');
+  const emailLabel = createField('Email', 'input', 'email');
+  const phoneLabel = createField('Телефон', 'input', 'tel');
+  const msgLabel = createField('Сообщение', 'textarea');
   const formButton = createElement('button', 'form__button', 'Отправить');
-  formButton.type = 'submit';
-  function phoneInputHandler() {
-    if (phoneMask.masked.isComplete) {
-      formButton.classList.add('btn__active');
-    } else {
-      formButton.classList.remove('btn__active');
-    }
-  }
-  phoneInput.addEventListener('input', phoneInputHandler);
-  form.append(
-    nameLabel,
-    emailLabel,
-    phoneContainer,
-    textLabel,
-    textField,
-    formButton,
-  );
+  formButton.type = 'button';
+  formButton.addEventListener('click', () => {
+    const formFields = form.querySelectorAll('.form-field__input');
+    removeErrors();
+    formFields.forEach((field) => checkValidate(field));
+  });
+  form.append(nameLabel, emailLabel, phoneLabel, msgLabel, formButton);
   return form;
 }
 
