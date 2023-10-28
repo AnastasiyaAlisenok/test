@@ -1,0 +1,13 @@
+.modal-btn {
+    width: 150px;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 5%;
+    margin-top: 15px;
+    background-color: #ff8438;
+    color: #fff;
+
+    &:hover {
+        background-color: #de8b069b;
+    }
+}
