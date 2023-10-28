@@ -3,17 +3,31 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["airbnb-base", "prettier"],
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["import", "prettier"],
+    "plugins": [
+        "import",
+        "prettier"
+    ],
     "rules": {
         "prettier/prettier": "error",
-        "import/no-unresolved": [0],
+        "import/no-unresolved": [
+            0
+        ],
         "import/export": 2,
-        "import/extensions": 0
+        "import/extensions": 0,
+        "no-console": "off"
     },
-    "ignorePatterns": ["webpack.config.js", "webpack.dev.config.js", "webpack.prod.config.js"]
+    "ignorePatterns": [
+        "webpack.config.js",
+        "webpack.dev.config.js",
+        "webpack.prod.config.js",
+        "./server/index.js"
+    ]
 }
