@@ -1,29 +1,38 @@
-@import '../../../styles/styles_variables.scss';
+@import '../../../styles/constants';
 
 .message {
     visibility: hidden;
-    width: 250px;
-    margin-left: 250px;
-    color: #fff;
+    width: 25%;
+    margin-left: 0;
+    color: $light-color;
     font-size: 22px;
     text-align: center;
     border-radius: 2px;
-    padding: 15px;
+    padding: 10px 15px;
     position: fixed;
     z-index: 1;
-    left: 50%;
-    top: 80px;
+    right: 5%;
+    top: 75px;
+    @media (max-width: 810px) {
+        width: 35%;
+    }
+    @media (max-width: 555px) {
+        width: 45%;
+    }
+    @media (max-width: 435px) {
+        width: 55%;
+    }
 
     &.show {
         visibility: visible;
         animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
 
         &.success {
-            background-color: green;
+            background-color: $success-color;
         }
 
         &.error {
-            background-color: red;
+            background-color: $error-color;
         }
     }
 }
@@ -35,14 +44,14 @@
     }
 
     to {
-        top: 80px;
+        top: 75px;
         opacity: 1;
     }
 }
 
 @keyframes fadeOut {
     from {
-        top: 80px;
+        top: 75px;
         opacity: 1;
     }
 

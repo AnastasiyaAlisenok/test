@@ -1,4 +1,5 @@
-@import '../../../styles/styles_variables.scss';
+@import '../../../styles/constants';
+@import '../../../styles/extends';
 
 label,
 textarea {
@@ -22,7 +23,7 @@ textarea {
         background-color: $light-color;
         box-shadow: 0px 3px 24px 0px rgba(34, 60, 80, 0.2);
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1240px) {
             width: 45%;
         }
 
@@ -34,11 +35,14 @@ textarea {
             width: 65%;
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 650px) {
             width: 75%;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 555px) {
+            width: 85%;
+        }
+        @media (max-width: 435px) {
             width: 90%;
         }
     }
@@ -46,8 +50,7 @@ textarea {
     .form {
         &-field {
             width: 90%;
-            display: flex;
-            justify-content: space-between;
+            @extend %flex-j-cont;
             margin-top: 15px;
             margin-bottom: 5px;
 
@@ -62,7 +65,7 @@ textarea {
             }
 
             &__star {
-                color: red;
+                color: $error-color;
                 margin-left: 5px;
             }
 
@@ -70,10 +73,10 @@ textarea {
                 width: 60%;
                 padding: 5px;
                 font-size: 1.8rem;
-                border: 2px solid #aaaaaa;
+                border: 2px solid $border-color;
 
                 &.input-error {
-                    border-color: red;
+                    border-color: $error-color;
                 }
             }
         }
@@ -85,11 +88,11 @@ textarea {
             margin: 0 auto;
             margin-top: 25px;
             padding: 10px 5px;
-            background-color: #ff8438;
+            background-color: $button-color;
             color: $light-color;
 
             &:hover {
-                background-color: #de8b069b;
+                background-color: $button-hover;
             }
         }
     }
@@ -104,7 +107,7 @@ textarea:focus {
 
 .error {
     width: 100%;
-    color: red;
+    color: $error-color;
     font-size: 12px;
     margin-left: 36%;
     margin-bottom: 5px;
